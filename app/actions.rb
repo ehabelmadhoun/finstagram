@@ -1,4 +1,4 @@
- def humanized_time_ago(time_ago_in_minutes)
+def humanized_time_ago(time_ago_in_minutes)
     if time_ago_in_minutes >= 60
         "#{time_ago_in_minutes / 60} hours ago"
 
@@ -9,6 +9,7 @@
 end
 
 get '/' do
+    File.read(File.join('app/views','index.erb'))
   finstagram_post_shark = {
     username: "sharky_j",
     avatar_url: "http://naserca.com/images/sharky_j.jpg",
@@ -48,5 +49,6 @@ get '/' do
   }
    posts_array = [finstagram_post_shark, finstagram_post_whale, finstagram_post_marlin]
    posts_array.to_s
-end
 
+   erb(:index)
+end
